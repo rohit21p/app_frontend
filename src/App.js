@@ -1,25 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Grid } from '@material-ui/core';
+import { Route, Switch } from 'react-router-dom';
+
+import AppBar from './components/appbar';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Grid container direction="column">
+      <AppBar />
+      <Switch>
+        <Route exact path="/login" render={() => <h1>Login</h1>} />
+        <Route path="/" render={() => <h1>Home</h1>} />
+      </Switch>
+    </Grid>
   );
 }
 
