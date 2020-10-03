@@ -3,6 +3,7 @@ import { Grid } from '@material-ui/core';
 import { Route, Switch } from 'react-router-dom';
 
 import AppBar from './components/appbar';
+import Home from './components/home';
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <AppBar />
       <Switch>
         <Route exact path="/login" render={() => <h1>Login</h1>} />
-        <Route path="/" render={() => <h1>Home</h1>} />
+        <Route path="/" component={Home} />
       </Switch>
     </Grid>
   );
