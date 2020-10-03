@@ -23,30 +23,25 @@ let defaultTheme = createMuiTheme({
             fontFamily: 'Montserrat',
             fontWeight: 500,
             fontSize: '1rem',
-            color: '#43425D'
         },
         h6:{
             fontFamily: 'Montserrat',
             fontWeight: 'bold',
-            color: '#43425D'
         },
         body1: {
             fontFamily: 'Montserrat',
             fontWeight: 500,
             fontSize: '1rem',
-            color: '#43425D'
         },
         body2:{
             fontFamily: 'Montserrat',
             fontWeight: 500,
             fontSize: '0.875rem',
-            color: '#43425D'
         },
         subtitle1:{
             fontFamily: 'Montserrat',
             fontWeight: 500,
             fontSize: '0.8rem',
-            color: '#43425D'
         },
     },
     
