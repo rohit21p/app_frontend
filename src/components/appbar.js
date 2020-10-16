@@ -8,6 +8,11 @@ const useStyles = makeStyles(theme => ({
     root: {
         backgroundColor: 'transparent',
         position: 'fixed',
+        color: 'white !important',
+    },
+    scrolledRoot: {
+        backgroundColor: 'white',
+        position: 'fixed',
     },
     logo: {
         height: '50px',
@@ -15,8 +20,8 @@ const useStyles = makeStyles(theme => ({
         margin: '15px'
     },
     navItem: {
-        color: 'white',
-        margin: '0 25px'
+        margin: '0 25px',
+        color: 'inherit'
     }
 }))
 
@@ -24,8 +29,25 @@ function AppBar() {
 
     const classes = useStyles();
 
+    let listener = null;
+    const [scrollState, setScrollState] = React.useState(false);
+
+    React.useEffect(() => {
+        listener = document.addEventListener("scroll", e => {
+        var scrolled = document.scrollingElement.scrollTop
+        if (scrolled >= 50 && !scrollState) {
+            setScrollState(true)
+        } else if (scrolled < 50 && scrollState) {
+            setScrollState(false)
+        }
+        })
+        return () => {
+            document.removeEventListener("scroll", listener)
+        }
+    }, [scrollState])
+
     return (
-        <Grid container className={classes.root} justify="center" alignItems="center">
+        <Grid container className={scrollState ? classes.scrolledRoot : classes.root} justify="center" alignItems="center">
             <Grid item>
                 <Grid container alignItems="center" className={classes.navItem}>
                     <img src={Logo} className={classes.logo}/>
