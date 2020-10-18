@@ -29,10 +29,22 @@ const useStyles = makeStyles(theme => ({
         position: 'relative',
         top: '-100px',
         backgroundColor: 'white',
-        borderRadius: '10px'
+        borderRadius: '10px',
     },
     introImg: {
-        margin: 'auto'
+        margin: 'auto',
+        [theme.breakpoints.down('lg')]: {
+            width: '580px',
+            height: '320px'
+        },
+        [theme.breakpoints.down('md')]: {
+            height: '250px',
+            width: '300px',
+        },
+        [theme.breakpoints.down('md')]: {
+            height: '220px',
+            width: '200px',
+        },
     },
     "@keyframes myEffect": {
         "70%, 100%": {
@@ -50,10 +62,26 @@ const useStyles = makeStyles(theme => ({
         overflow: 'hidden',
         color: 'white',
         borderColor: 'transparent',
-        animation: `$myEffect 3s steps(30) 2s forwards, $blink 0.5s 30`
+        animation: `$myEffect 3s steps(30) 2s forwards, $blink 0.5s 30`,
+        [theme.breakpoints.down('md')]: {
+            fontSize: '20px'
+        },
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '14px'
+        },
     },
     introDesc: {
-        width: '400px'
+        width: '400px',
+        [theme.breakpoints.down('lg')]: {
+            textAlign: 'center'
+        },
+        [theme.breakpoints.down('md')]: {
+            fontSize: '12px'
+        },
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '8px',
+            width: '200px'
+        },
     },
     socialIcons: {
         cursor: 'pointer',
@@ -61,7 +89,15 @@ const useStyles = makeStyles(theme => ({
     },
     stepsImg: {
         height: '450px',
-        width: '600px'
+        width: '600px',
+        [theme.breakpoints.down('lg')]: {
+            height: '350px',
+            width: '500px',
+        },
+        [theme.breakpoints.down('md')]: {
+            height: '250px',
+            width: '300px',
+        },
     },
     stepDesc: {
         width: '300px'
@@ -75,8 +111,8 @@ function Home() {
     return (
         <Grid container className={classes.root}>
             <Grid item xs={12} className={classes.intro}>
-                <Grid container className={classes.intro} alignItems="center">
-                    <Grid item xs={6}>
+                <Grid container className={classes.intro} alignItems="center" justify="center">
+                    <Grid item xs={12} lg={6}>
                         <Grid container justify="center">
                             <img className={classes.introImg} src={Intro} alt=""></img>
                         </Grid>
@@ -105,7 +141,7 @@ function Home() {
                         <h2>How to get started?</h2>
                     </Grid>
                     <Grid item>
-                        <Grid container alignItems="center">
+                        <Grid container alignItems="center" justify="center">
                             <Grid item className={classes.stepDesc}>
                                 <p>Step 1:</p>
                                 <p>Register your business on the site, and create your online presence</p>
@@ -116,7 +152,7 @@ function Home() {
                         </Grid>
                     </Grid>
                     <Grid item>
-                        <Grid container alignItems="center">
+                        <Grid container alignItems="center" justify="center">
                             <Grid item className={classes.stepDesc}>
                                 <p>Step 2:</p>
                                 <p>Share the link with your customers</p>
@@ -127,7 +163,7 @@ function Home() {
                         </Grid>
                     </Grid>
                     <Grid item>
-                        <Grid container alignItems="center">
+                        <Grid container alignItems="center" justify="center">
                             <Grid item className={classes.stepDesc}>
                                 <p>Step 3:</p>
                                 <p>Upload and manage your products on the site</p>
@@ -138,7 +174,7 @@ function Home() {
                         </Grid>
                     </Grid>
                     <Grid item>
-                        <Grid container alignItems="center">
+                        <Grid container alignItems="center" justify="center">
                             <Grid item className={classes.stepDesc}>
                                 <p>Step 4:</p>
                                 <p>Watch your business grow and see analysis of your buyers and products</p>
@@ -149,7 +185,7 @@ function Home() {
                         </Grid>
                     </Grid>
                     <Grid item>
-                        <Grid container alignItems="center">
+                        <Grid container alignItems="center" justify="center">
                             <Grid item className={classes.stepDesc}>
                                 <p>Step 5:</p>
                                 <p>Sit back and relax</p>
