@@ -2,6 +2,7 @@ import React from 'react';
 import { Grid, Typography, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import Register from './register'
+import Login from './login'
 
 import Logo from '../assets/logo.png'
 
@@ -33,7 +34,8 @@ function Navbar() {
     let listener = null;
     const [scrollState, setScrollState] = React.useState(false);
     const [dialogs, setDialogs] = React.useState({
-        register: false
+        register: false,
+        login: false,
     })
 
     React.useEffect(() => {
@@ -50,14 +52,6 @@ function Navbar() {
             document.removeEventListener("scroll", listener)
         }
     }, [scrollState])
-
-    function handleCloseRegister() {
-        changeDialogs("register", false);
-    }
-
-    function handleClickNewUser() {
-        changeDialogs("register", true);
-    }
 
     function changeDialogs(prop, value) {
         setDialogs(dialogs => ({
@@ -76,13 +70,14 @@ function Navbar() {
                     </Grid>
                 </Grid>
                 <Grid item>
-                <Button className={classes.navItem} onClick={handleClickNewUser}>New User</Button>
+                <Button className={classes.navItem} onClick={_ => changeDialogs("register", true)}>New User</Button>
                 </Grid>
                 <Grid item>
-                <Button className={classes.navItem}>Login</Button>
+                <Button className={classes.navItem} onClick={_ => changeDialogs("login", true)}>Login</Button>
                 </Grid>
             </Grid>
-            <Register show={dialogs.register} handleCloseRegister={handleCloseRegister}/>
+            <Register show={dialogs.register} handleCloseRegister={() => changeDialogs("register", false)}/>
+            <Login show={dialogs.login} handleCloseLogin={() => changeDialogs("login", false)}/>
         </>
     );
 }
