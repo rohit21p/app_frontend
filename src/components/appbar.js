@@ -37,6 +37,7 @@ function Navbar() {
     })
 
     React.useEffect(() => {
+        // eslint-disable-next-line
         listener = document.addEventListener("scroll", e => {
         var scrolled = document.scrollingElement.scrollTop
         if (scrolled >= 50 && !scrollState) {
@@ -70,7 +71,7 @@ function Navbar() {
             <Grid container className={scrollState ? classes.scrolledRoot : classes.root} justify="center" alignItems="center">
                 <Grid item>
                     <Grid container alignItems="center" className={classes.navItem}>
-                        <img src={Logo} className={classes.logo}/>
+                        <img src={Logo} className={classes.logo} alt=""/>
                         <Typography variant="h4"> App FrontEnd </Typography>
                     </Grid>
                 </Grid>
